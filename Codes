@@ -1,0 +1,22 @@
+auto = read.csv("C:/Users/S533727/Documents/DV/auto-miles-per-gallon.csv")
+auto$HORSEPOWER = as.integer(auto$HORSEPOWER)
+
+ggplot(auto, aes(x = MPG, y = WEIGHT)) + geom_point()
+autoModel1 = lm(MPG ~ WEIGHT, data = auto)
+summary(autoModel1)
+ggplot(auto, aes(x = MPG, y = WEIGHT)) + geom_point() + stat_smooth(method = "lm", col = "red")
+
+ggplot(auto, aes(x = MPG, y = HORSEPOWER)) + geom_point()
+autoModel2 = lm(MPG ~ HORSEPOWER, data = auto)
+summary(autoModel2)
+ggplot(auto, aes(x = MPG, y = HORSEPOWER)) + geom_point() + stat_smooth(method = "lm", col = "red")
+
+ggplot(auto, aes(x = MPG, y = HORSEPOWER)) + geom_point()
+autoModel2 = lm(MPG ~ HORSEPOWER, data = auto)
+summary(autoModel2)
+ggplot(auto, aes(x = MPG, y = HORSEPOWER)) + geom_point() + stat_smooth(method = "lm", col = "red")
+
+
+
+autoModel3 = lm(MPG ~ CYLINDERS + DISPLACEMENT + HORSEPOWER + WEIGHT + ACCELERATION + MODELYEAR, data = auto)
+summary(autoModel3)
