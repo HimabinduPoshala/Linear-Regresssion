@@ -7,7 +7,7 @@ auto = read.csv("C:/Users/S533727/Documents/DV/auto-miles-per-gallon.csv")
 auto$HORSEPOWER = as.integer(auto$HORSEPOWER)
 
 # Generate scatter plot for the input data(MPG vs WEIGHT)
-ggplot(auto, aes(x = MPG, y = WEIGHT)) + geom_point() + ggtitle("Scatter plot for miles per gallon vs WEIGHT")
+ggplot(auto, aes(x = MPG, y = WEIGHT)) + geom_point() + ggtitle("Scatter plot for miles per gallon vs weight")
 # Generate a linear regression model 
 autoModel1 = lm(MPG ~ WEIGHT, data = auto)
 # print the statistic summary of linear model
