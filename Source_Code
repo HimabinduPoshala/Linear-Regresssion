@@ -3,9 +3,11 @@ library(ggplot2)
 
 # import dataset into a variable
 auto = read.csv("C:/Users/S533727/Documents/DV/auto-miles-per-gallon.csv")
+# This read variable as a integer
+auto$HORSEPOWER = as.integer(auto$HORSEPOWER)
 
 # Generate scatter plot for the input data(MPG vs WEIGHT)
-ggplot(auto, aes(x = MPG, y = WEIGHT)) + geom_point()+ ggtitle("Scatter plot for miles per gallon vs WEIGHT")
+ggplot(auto, aes(x = MPG, y = WEIGHT)) + geom_point() + ggtitle("Scatter plot for miles per gallon vs WEIGHT")
 # Generate a linear regression model 
 autoModel1 = lm(MPG ~ WEIGHT, data = auto)
 # print the statistic summary of linear model
@@ -30,23 +32,24 @@ ggplot(auto, aes(x = MPG, y = HORSEPOWER)) + geom_point() + stat_smooth(method =
 # Generate scatter plot for the input data(MPG vs MODELYEAR)
 ggplot(auto, aes(x = MPG, y = MODELYEAR)) + geom_point()
 # Generate a linear regression model 
-autoModel2 = lm(MPG ~ MODELYEAR, data = auto)
+autoModel3 = lm(MPG ~ MODELYEAR, data = auto)
 # print the statistic summary of linear model
-summary(autoModel2)
+summary(autoModel3)
 # Generate regression line
 ggplot(auto, aes(x = MPG, y = MODELYEAR)) + geom_point() + stat_smooth(method = "lm", col = "red")
 
 
 # This is to generate the multiple variable regression 
 # Genearte linear model using multiple independent variables
-autoModel3 = lm(MPG ~ CYLINDERS + DISPLACEMENT + HORSEPOWER + WEIGHT + ACCELERATION + MODELYEAR, data = auto)
+autoModel4 = lm(MPG ~ CYLINDERS + DISPLACEMENT + HORSEPOWER + WEIGHT + ACCELERATION + MODELYEAR, data = auto)
 # print the statistic summary of linear model
-summary(autoModel3)
+summary(autoModel4)
 
 
 # This is to generate the multiple variable regression 
 # Genearte linear model using multiple independent variables
-autoModel3 = lm(MPG ~ HORSEPOWER + WEIGHT + MODELYEAR, data = auto)
+autoModel5 = lm(MPG ~ HORSEPOWER + WEIGHT + MODELYEAR, data = auto)
 # print the statistic summary of linear model
-summary(autoModel3)
+summary(autoModel5)
+
 
